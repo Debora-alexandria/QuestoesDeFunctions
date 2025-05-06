@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ATV-FUNCTION</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+
+    <!--QUESTÃO 1 -->
+    <script>
+        function calcularDesconto(precoOriginal,desconto){
+            if (typeof precoOriginal !== 'number' || typeof desconto !== 'number'){
+                return 'Erro! Valores invalidos, precisa ser um valor númerico.';
+            }
+            if (precoOriginal < 0 || desconto < 0 || desconto >100){
+                return 'Erro! Valores invalidos.';
+            }
+            const valorDesconto = precoOriginal - (precoOriginal *(desconto/100));
+            return valorDesconto;
+        }
+        console.log(calcularDesconto(20,5));
+    </script>
+
+    <!--QUESTÃO 2 -->
+    <script>
+        function verificarMaioridade(idade){
+            if (idade >= 18){
+                return 'Maioridade';
+            }
+            if (idade < 18){
+                return 'Menoridade';
+            }
+            else{
+                return 'Erro! Valores invalidos!';
+            }
+        }
+        console.log(verificarMaioridade(16));
+    </script>
+
+    <!--QUESTÃO 3 -->
+    <script>
+        function calcularSlarioLiquido(salarioBruto){
+            if(typeof salarioBruto !== 'number'){
+                return 'Erro! Valor invalido, tente novamente';
+            }
+            if(salarioBruto < 0){
+                return 'Erro! valor precisa ser positivo.';
+            }
+            else{
+                const salarioFinal = salarioBruto - (salarioBruto * (10/100));
+                return salarioFinal;
+            }
+        }
+        console.log(calcularSlarioLiquido(2000));
+    </script>
+
+    <!--QUESTÃO 4 -->
+    <script>
+        function gerarSenha (comprimento){
+            const caracteres ="ABCDEFGHIHKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            if(typeof comprimento !== "number"){
+                return "Erro! comprimento precisa ser um valor numerico";
+            }
+            let Senha = ""
+            for(let i=0; i<comprimento;i++){
+                const indice= Math.floor (Math.random()*caracteres.lemgth);
+                Senha+= caracteres[indice];
+            }
+            return Senha 
+        }
+        console.log (gerarSenha(5));
+    </script>
+    
+    <!--QUESTÃO 5 -->
+    <script>
+        function converterTemperatura(temperatura, tipo){
+            if(typeof temperatura !== 'number'){
+                return 'Erro! Temperatura precisa ser um valor numérico';
+            }
+            if(tipo == 'celsiusParaFahrenheit'){
+                return ((temperatura * 9/5) + 32);
+            }
+            if(tipo == 'fahrenheitParaCelsius'){
+                return ((temperatura - 32) * 5/9);
+            }
+            else{
+                return 'tipo invalido, use: celsiusParaFahrenheit ou fahrenheitParaCelsius';
+            }
+        }
+        console.log(converterTemperatura(60,'fahrenheitParaCelsius'));
+    </script>
+
+    <!--QUESTÃO 6 -->
+    <script>
+        function calcularMedia(numeros){
+        if(!Array.isArray(numeros)){
+            return 'Erro! O paramento precisa ser um array'
+        }
+        if(numeros.lemgth === 0){
+            return 0;
+        }
+        const apenasNumeros = numeros.filter(n => typeof n === "number");
+        if (apenasNumeros.length===0){
+            return 0;
+        }
+        const soma =apenasNumeros.reduce((total,num) => total + num,0);
+        return soma/apenasNumeros.length;
+    }
+    console.log(calcularMedia([10,5,4]))
+    </script>
+
+    <!--QUESTÃO 7 -->
+    <script>
+        function filtrarPalavras(palavras, comprimento){
+            if(!Array.isArray(palavras) || typeof comprimento !== 'number'){
+                return 'Erro! Valores invalidos';
+            }
+            return palavras.filter(palavras => typeof palavras === 'string' && palavras.length >= comprimento);
+        }
+        console.log(filtrarPalavras(['morango', 'banana', 'goiaba', 'carambola'], 5));
+    </script>
+
+    <!--QUESTÃO 8 -->
+    <script>
+        function categoriaProduto(preco){
+            if(typeof preco !== 'number' || preco < 0){
+                return 'Erro! preço invalido';
+            }
+            if(preco < 50){
+                return 'Econômico'
+            }
+            if(preco >= 50 && preco < 100){
+                return 'Intermediário'
+            }
+            else{
+                return 'Premium'
+            }
+        }
+        console.log(categoriaProduto(1500))
+    </script>
+
+    <!-- QUESTÃO 9 -->
+     <script>
+        function encontrarNumeroPrimo(numero){
+            if(typeof numero !== 'number'){
+                return 'Erro! Valor invalido.';
+            }
+            if(numero < 2){
+                return false;
+            }
+            for(let i = 2; i < Math.sqrt(numero); i++){
+                if(numero % i === 0){
+                    return false;
+            }
+        }
+        return true;
+    }
+    console.log(encontrarNumeroPrimo(11));
+     </script>
+
+     <!-- QUESTÃO 10 -->
+     <script>
+        function contarVogais(texto){
+            if(typeof texto !== 'string'){
+                return 'Erro! Valor precisa ser string';
+            }
+            const vogais = texto.match(/[aeiou]/gi);
+            return vogais ? vogais.lengh : 0;
+        }
+        console.log(contarVogais('Java Script'));
+     </script>
+</body>
+</html>
